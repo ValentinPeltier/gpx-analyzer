@@ -1,0 +1,9 @@
+# Dependencies
+/node_modules/
+
+# Next.js
+next-env.d.ts
+/.next/
+
+# Environment
+.env
