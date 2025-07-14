@@ -48,7 +48,7 @@ export default function Home() {
                     recentFiles={recentFileNames}
                     onFileOpen={openFile}
                     onFileClose={() => {
-                        if (currentFileName !== null) {
+                        if (currentFileName !== undefined) {
                             closeFile(currentFileName);
                         }
                     }}
