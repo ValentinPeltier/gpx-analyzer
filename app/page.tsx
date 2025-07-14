@@ -10,27 +10,27 @@ export default function Home() {
     const recentFileNames: string[] = [];
     const [currentFileName, setCurrentFileName] = useState<string>();
 
-    const openFile = (file: GpxFile) => {
+    const openFile = (gpxFile: GpxFile) => {
         // If the file is not already open
-        if (files.findIndex((f) => f.getName() === file.getName()) === -1) {
+        if (files.findIndex((f) => f.name === gpxFile.name) === -1) {
             // Add the file
-            setFiles(files.concat([file]));
+            setFiles(files.concat([gpxFile]));
         }
 
         // Switch to the new tab
-        setCurrentFileName(file.getName());
+        setCurrentFileName(gpxFile.name);
     };
 
     const closeFile = (fileName: string) => {
         if (fileName !== undefined) {
-            const fileIndex = files.findIndex((file) => file.getName() === fileName);
+            const fileIndex = files.findIndex((file) => file.name === fileName);
             if (fileIndex !== -1) {
                 // Remove the file
                 setFiles(files.toSpliced(fileIndex, 1));
 
                 // Switch to the previous tab
                 if (fileIndex - 1 >= 0) {
-                    setCurrentFileName(files[fileIndex - 1].getName());
+                    setCurrentFileName(files[fileIndex - 1].name);
                 }
             }
         }

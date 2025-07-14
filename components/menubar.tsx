@@ -42,7 +42,7 @@ export const Menubar = ({
                     for (const file of fileList) {
                         let gpxFile;
                         try {
-                            gpxFile = new GpxFile(file.name, await file.text());
+                            gpxFile = GpxFile.parse(file.name, await file.text());
                         }
                         catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
                             toast(`Impossible d'ouvrir le fichier ${file.name}`, {

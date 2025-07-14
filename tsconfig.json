@@ -27,7 +27,6 @@
         "resolveJsonModule": true,
         "target": "ES2017",
         "skipLibCheck": true,
-        "sourceMap": true,
         "strict": true
     },
     "include": [

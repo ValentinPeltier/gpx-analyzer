@@ -23,18 +23,18 @@ export const FileTabs = ({
                         <ContextMenuTrigger>
                             <TabsTrigger
                                 key={index}
-                                value={file.getName()}
+                                value={file.name}
                                 className="flex-0 w-[150]"
-                            >{file.getNameWithoutExtension()}</TabsTrigger>
+                            >{file.nameWithoutExtension}</TabsTrigger>
                         </ContextMenuTrigger>
                         <ContextMenuContent>
-                            <ContextMenuItem variant="destructive" onClick={() => onFileClose(file.getName())}>Fermer</ContextMenuItem>
+                            <ContextMenuItem variant="destructive" onClick={() => onFileClose(file.name)}>Fermer</ContextMenuItem>
                         </ContextMenuContent>
                     </ContextMenu>
                 ))}
             </TabsList>
             {files.map((file, index) => (
-                <TabsContent key={index} value={file.getName()}>{file.getName()} ({file.getSize()} bytes)</TabsContent>
+                <TabsContent key={index} value={file.name}>{file.toString()}</TabsContent>
             ))}
         </Tabs>
     );
