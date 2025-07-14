@@ -6,7 +6,7 @@ import GpxFile from "@/utils/GpxFile";
 
 export const FileTabs = ({
     files,
-    fileName: fileId,
+    fileName,
     onFileChange,
     onFileClose,
 }: {
@@ -16,7 +16,7 @@ export const FileTabs = ({
     onFileClose: (fileId: string) => void,
 }) => {
     return (
-        <Tabs value={fileId} onValueChange={onFileChange}>
+        <Tabs value={fileName ?? ""} onValueChange={onFileChange}>
             <TabsList className="w-full justify-start">
                 {files.map((file, index) => (
                     <ContextMenu key={index}>
