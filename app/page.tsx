@@ -6,14 +6,9 @@ import { FileTabs } from "@/components/file-tabs";
 import GpxFile from "@/utils/GpxFile";
 
 export default function Home() {
-    const [files, setFiles] = useState<GpxFile[]>([
-        new GpxFile("test1.gpx", ""),
-        new GpxFile("test2.gpx", ""),
-    ]);
-    const recentFileNames = [
-        "recent1.gpx",
-    ];
-    const [currentFileName, setCurrentFileName] = useState<string>(files[0].getName());
+    const [files, setFiles] = useState<GpxFile[]>([]);
+    const recentFileNames: string[] = [];
+    const [currentFileName, setCurrentFileName] = useState<string>();
 
     const openFile = (file: GpxFile) => {
         // If the file is not already open
