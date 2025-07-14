@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menubar } from "@/components/menubar";
+import { FileTabs } from "@/components/file-tabs";
 import GpxFile from "@/utils/GpxFile";
 
 export default function Home() {
@@ -54,6 +55,12 @@ export default function Home() {
                 />
             </header>
             <main>
+                <FileTabs
+                    files={files}
+                    fileName={currentFileName}
+                    onFileChange={setCurrentFileName}
+                    onFileClose={closeFile}
+                />
             </main>
         </div>
     );
