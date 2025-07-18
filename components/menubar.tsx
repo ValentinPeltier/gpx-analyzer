@@ -14,7 +14,7 @@ import {
     MenubarTrigger,
 } from "@/components/ui/menubar";
 import { Input } from "@/components/ui/input";
-import GpxFile from "@/utils/GpxFile";
+import File from "@/utils/gpx/File";
 
 export const Menubar = ({
     recentFiles: recentFileNames,
@@ -22,7 +22,7 @@ export const Menubar = ({
     onFileClose,
 }: {
     recentFiles: string[],
-    onFileOpen: (file: GpxFile) => void,
+    onFileOpen: (file: File) => void,
     onFileClose: () => void,
 }) => {
     const fileRef = useRef<HTMLInputElement>(null);
@@ -42,7 +42,7 @@ export const Menubar = ({
                     for (const file of fileList) {
                         let gpxFile;
                         try {
-                            gpxFile = GpxFile.parse(file.name, await file.text());
+                            gpxFile = File.parse(file.name, await file.text());
                         }
                         catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
                             toast(`Impossible d'ouvrir le fichier ${file.name}`, {

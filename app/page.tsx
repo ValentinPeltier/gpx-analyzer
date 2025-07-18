@@ -3,14 +3,14 @@
 import { useState } from "react";
 import { Menubar } from "@/components/menubar";
 import { FileTabs } from "@/components/file-tabs";
-import GpxFile from "@/utils/GpxFile";
+import File from "@/utils/gpx/File";
 
 export default function Home() {
-    const [files, setFiles] = useState<GpxFile[]>([]);
+    const [files, setFiles] = useState<File[]>([]);
     const recentFileNames: string[] = [];
     const [currentFileName, setCurrentFileName] = useState<string>();
 
-    const openFile = (gpxFile: GpxFile) => {
+    const openFile = (gpxFile: File) => {
         // If the file is not already open
         if (files.findIndex((f) => f.name === gpxFile.name) === -1) {
             // Add the file
